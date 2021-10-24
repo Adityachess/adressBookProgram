@@ -197,7 +197,7 @@ public class AddressBookMain {
 
 		System.out.print("Enter City: ");
 		String city = scanner.nextLine();
-		;
+
 		System.out.print("Enter State: ");
 		String state = scanner.nextLine();
 
