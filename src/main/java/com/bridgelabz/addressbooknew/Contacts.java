@@ -10,8 +10,8 @@ class Contacts {
 	private String number;
 	private String email;
 
-	Contacts(String firstName, String lastName, String address, String city, String state, String zipCode,
-			String number, String email) {
+	Contacts(String firstName, String lastName, String address, String city, String state, String zipCode, String number,
+			String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -94,4 +94,5 @@ class Contacts {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 }
