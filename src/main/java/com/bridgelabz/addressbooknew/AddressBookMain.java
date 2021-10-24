@@ -1,17 +1,41 @@
 package com.bridgelabz.addressbooknew;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookMain {
+	static ArrayList<Contacts> contactList = new ArrayList<>();
 
 	public static void main(String[] args) {
-		System.out.println(     
-				"              Welcome To Address Book");
+		System.out.println(
+				"***********************************************\n          Welcome To Address Book\n***********************************************\n");
 		AddressBookMain appAddressBookMain = new AddressBookMain();
-		System.out.println(appAddressBookMain.createContact());
+		int ch = 0;
+		while (ch == 0) {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("1. = Add Contacts\n2. = Display Contact\n3. = Exit\nEnter Your Choice: ");
+			int choice = scanner.nextInt();
+			switch (choice) {
+			case 1:
+				appAddressBookMain.createContact();
+			case 2:
+				appAddressBookMain.display();
+			case 3:
+				ch = 1;
+			default:
+				System.out.println("Plz Enter 1 or 2 or 3  only");
+			}
+		}
 	}
 
-	private Contacts createContact() {
+	private void display() {
+		System.out.println("*****************\n  CONTACT LIST\n***************** ");
+		for (Contacts b : contactList) {
+			System.out.println(b.toString());
+		}
+	}
+
+	private void createContact() {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("Enter First Name: ");
@@ -38,8 +62,8 @@ public class AddressBookMain {
 		System.out.print("Enter Email id: ");
 		String email = scanner.nextLine();
 
-		return new Contacts(firstName, lastName, address, city, state, zipcode, number, email);
-
+		Contacts contact = new Contacts(firstName, lastName, address, city, state, zipcode, number, email);
+		contactList.add(contact);
+		System.out.println("\nContact Added.......\n");
 	}
-
 }
